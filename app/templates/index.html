@@ -16,6 +16,8 @@
 
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<meta name="viewport" content="width=device-width, user-scalable=no" />
+  
+  <script src="https://hammerjs.github.io/dist/hammer.js"></script>
 
 	<style type="text/css">
 		body {
@@ -85,6 +87,50 @@
 	</div>
 	<script>
 	  // your solution here
+	  //adding rotate feature
+    var myElement1 = document.getElementById('rotate-box');
+    var me1 = new Hammer(myElement1);
+	  me1.get('rotate').set({enable: true});
+	  me1.on("rotate", function(ev1) {
+		  myElement1.textContent = ev1.type +" gesture detected.";
+		});
+
+	  //adding pinch feature
+    var myElement2 = document.getElementById('pinch-box');
+    var me2 = new Hammer(myElement2);
+	  me2.get('pinch').set({enable: true});
+	  me2.on("pinch", function(ev2) {
+		  myElement2.textContent = ev2.type +" gesture detected.";
+		});
+
+	  //adding press feature
+    var myElement3 = document.getElementById('press-box');
+    var me3 = new Hammer(myElement3);
+	  me3.on("press", function(ev3) {
+		  myElement3.textContent = ev3.type +" gesture detected.";
+		});
+
+	  //adding pan feature
+    var myElement4 = document.getElementById('pan-box');
+    var me4 = new Hammer(myElement4);
+	  me4.on("pan", function(ev4) {
+	  	myElement4.textContent = ev4.type +" gesture detected.";
+	  });
+
+	  //adding tap feature
+    var myElement5 = document.getElementById('tap-box');
+    var me5 = new Hammer(myElement5);
+	  me5.on("tap", function(ev5) {
+       myElement5.textContent = ev5.type +" gesture detected.";
+	  });
+
+	  //adding swipe feature
+    var myElement6 = document.getElementById('swipe-box');
+    var me6 = new Hammer(myElement6);
+	  me6.on("swipe", function(ev6) {
+	  	myElement6.textContent = ev6.type +" gesture detected.";
+	  });
+    
   </script>
 </body>
 </html>
